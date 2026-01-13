@@ -19,6 +19,12 @@
   <img src="https://img.shields.io/badge/Theme-Dark%20Mode-1a1a2e?style=flat-square" alt="Dark Mode"/>
 </p>
 
+<p align="center">
+  <a href="https://uidai-maharashtra-dashboard-cwcccngcfzbwcca2.centralindia-01.azurewebsites.net/">🔗 Live Dashboard</a>
+  <!-- If you prefer a badge-style button instead, uncomment the next line -->
+  <!-- <a href="https://uidai-maharashtra-dashboard-cwcccngcfzbwcca2.centralindia-01.azurewebsites.net/"><img src="https://img.shields.io/badge/Live%20Dashboard-Open-00aa44?style=for-the-badge" alt="Live Dashboard"/></a> -->
+</p>
+
 ---
 
 ## 📋 Overview
@@ -229,6 +235,6 @@ See [LICENSE](LICENSE) for full details.
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge" alt="Made with love"/>
+  <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge" alt="Made with love"/>
   <img src="https://img.shields.io/badge/For-UIDAI%20Hackathon-00aa44?style=for-the-badge" alt="For UIDAI"/>
 </p>
