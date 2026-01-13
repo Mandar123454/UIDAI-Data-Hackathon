@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UIDAI Aadhaar Enrolment Dashboard - Maharashtra</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>UIDAI Aadhaar Enrolment Dashboard — Maharashtra</h1>
+    <p>Monthly analytics, disparities, seasonality, and policy signals</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Downloads</h2>
+      <p>
+        <a href="/download/dataset" style="display:inline-block;background:#0b6e4f;color:#fff;padding:8px 12px;border-radius:6px;margin-right:8px;text-decoration:none;">Download Dataset (CSV)</a>
+        <a href="/download/report" style="display:inline-block;background:#1e3a5f;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;">Download Report (PDF)</a>
+      </p>
+    </section>
+    <section class="card">
+      <details>
+        <summary><h2 style="display:inline">Methodology</h2></summary>
+        <ul>
+          <li><strong>Data source:</strong> UIDAI Aadhaar Enrolment Dataset</li>
+          <li><strong>Scope:</strong> Maharashtra, monthly granularity</li>
+          <li><strong>Aggregations:</strong> State monthly totals; district-by-month; pincode-by-month; seasonality (month-of-year)</li>
+          <li><strong>Definitions:</strong></li>
+          <ul>
+            <li><strong>Saturation risk:</strong> Last 3-month avg ÷ rolling 12-month max (district)</li>
+            <li><strong>Volatility:</strong> 12-month std dev compared to state median</li>
+            <li><strong>Child momentum:</strong> Share and trajectory of 0–5 and 5–17 in total</li>
+          </ul>
+        </ul>
+      </details>
+    </section>
+    <section class="card">
+      <h2>State Monthly Trend</h2>
+      <div id="total_trend"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['total_trend']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['total_trend']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['total_trend']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Age Group Dynamics</h2>
+      <div id="age_stacked"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['age_stacked']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['age_stacked']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['age_stacked']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>District-Level Disparities</h2>
+      <div id="district_disparity"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['district_disparity']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['district_disparity']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['district_disparity']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Pincode Distribution</h2>
+      <div id="pincode_box"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['pincode_box']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['pincode_box']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['pincode_box']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Seasonality Index</h2>
+      <div id="seasonality_index"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['seasonality_index']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['seasonality_index']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['seasonality_index']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>District Risk Flags</h2>
+      <div id="risk_summary"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['risk_summary']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['risk_summary']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['risk_summary']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Child Enrolment Momentum</h2>
+      <div id="child_momentum"></div>
+      <div class="insight">
+        <strong>What:</strong> {{ insights['child_momentum']['what'] }}<br/>
+        <strong>Key findings:</strong> {{ insights['child_momentum']['findings'] }}<br/>
+        <strong>Why it matters:</strong> {{ insights['child_momentum']['why'] }}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Policy Recommendations</h2>
+      <ul>
+        {% for rec in recommendations %}
+          <li>{{ rec }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <small>UIDAI Data Hackathon 2026 — Maharashtra Dashboard ·<br/> © Mandar Kajbaje</small>
+  </footer>
+
+  <script>
+    const figures = {{ figures_json | safe }};
+    // Minimal, essential buttons only
+    const plotConfig = {
+      displaylogo: false,
+      responsive: true,
+      modeBarButtons: [ ['zoom2d','pan2d','resetScale2d','toImage'] ],
+      toImageButtonOptions: { format: 'png', filename: 'uidai-dashboard', height: 600, width: 1000, scale: 2 }
+    };
+
+    Plotly.newPlot('total_trend', JSON.parse(figures['total_trend']), {}, plotConfig);
+    Plotly.newPlot('age_stacked', JSON.parse(figures['age_stacked']), {}, plotConfig);
+    Plotly.newPlot('district_disparity', JSON.parse(figures['district_disparity']), {}, plotConfig);
+    Plotly.newPlot('pincode_box', JSON.parse(figures['pincode_box']), {}, plotConfig);
+    Plotly.newPlot('seasonality_index', JSON.parse(figures['seasonality_index']), {}, plotConfig);
+    Plotly.newPlot('risk_summary', JSON.parse(figures['risk_summary']), {}, plotConfig);
+    Plotly.newPlot('child_momentum', JSON.parse(figures['child_momentum']), {}, plotConfig);
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments
+.venv/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Build / cache
+*.egg-info/
+.dist/
+.build/
+
+# Keep dataset and PDF tracked (do not ignore)
+# Dataset/
+# UIDAI_Aadhaar_Analytics_Report.pdf
+orki

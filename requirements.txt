@@ -1,0 +1,4 @@
+Flask>=3.0
+pandas>=2.2
+plotly>=5.20
+gunicorn>=21.2
