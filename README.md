@@ -235,6 +235,6 @@ See [LICENSE](LICENSE) for full details.
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F-red?style=for-the-badge" alt="Made with love"/>
+  <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%96-red?style=for-the-badge" alt="Made with love"/>
   <img src="https://img.shields.io/badge/For-UIDAI%20Hackathon-00aa44?style=for-the-badge" alt="For UIDAI"/>
 </p>
