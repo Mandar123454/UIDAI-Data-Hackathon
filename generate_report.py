@@ -964,6 +964,59 @@ def create_transparency_section(styles):
     return elements
 
 
+def create_project_deployment_access_section(styles):
+    """Add a judge-ready deployment & access section near the end."""
+    elements = []
+
+    elements.append(Paragraph("Project Deployment and Access", styles['SectionHeading']))
+    elements.append(HRFlowable(width="100%", thickness=1, color=LIGHT_GRAY, spaceAfter=12))
+
+    elements.append(Paragraph(
+        """The analytical solution developed as part of this project has been deployed as a live, interactive web dashboard to demonstrate real-time usability and practical applicability.""",
+        styles['BodyText']
+    ))
+
+    elements.append(Paragraph(
+        """The dashboard enables stakeholders to explore Aadhaar enrolment trends, district-level disparities, seasonality patterns, and policy-relevant indicators through visual analytics and explanations.""",
+        styles['BodyText']
+    ))
+
+    elements.append(Paragraph("<b>Deployed Dashboard URL:</b> https://uidai-maharashtra-dashboard.azurewebsites.net", styles['BodyText']))
+
+    elements.append(Paragraph(
+        """The deployment ensures transparency, reproducibility, and ease of evaluation, allowing reviewers and decision-makers to directly interact with the analysis rather than relying solely on static outputs.""",
+        styles['BodyText']
+    ))
+
+    # Optional, high-impact note on scalability
+    elements.append(Paragraph(
+        "The solution architecture is scalable and can be extended to other states or national-level datasets with minimal configuration changes.",
+        styles['BodyText']
+    ))
+
+    elements.append(PageBreak())
+    return elements
+
+
+def create_author_details_section(styles):
+    """Add author/contributor details at the end of the report."""
+    elements = []
+
+    elements.append(Paragraph("Author Details", styles['SectionHeading']))
+    elements.append(HRFlowable(width="100%", thickness=1, color=LIGHT_GRAY, spaceAfter=12))
+
+    elements.append(Paragraph("<b>Project Author:</b> Mandar Kajbaje", styles['BodyText']))
+    elements.append(Paragraph("<b>Academic Background:</b> Bachelor of Science in Computer Science (B.Sc. CS)", styles['BodyText']))
+    elements.append(Paragraph("<b>Expected Graduation Year:</b> 2026", styles['BodyText']))
+
+    elements.append(Paragraph(
+        """This project was developed as part of a data analytics and policy-oriented learning initiative, focusing on transforming open government data into actionable insights for public service improvement.""",
+        styles['BodyText']
+    ))
+
+    elements.append(PageBreak())
+    return elements
+
 def create_conclusion(styles):
     """Create the conclusion section."""
     elements = []
@@ -1074,6 +1127,8 @@ def generate_pdf():
     elements.extend(create_recommendations(styles, recs))
     elements.extend(create_deployment_section(styles))
     elements.extend(create_transparency_section(styles))
+    elements.extend(create_project_deployment_access_section(styles))
+    elements.extend(create_author_details_section(styles))
     elements.extend(create_conclusion(styles))
     
     # Build PDF with header/footer
