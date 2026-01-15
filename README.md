@@ -92,7 +92,7 @@ UIDAI Data Hackathon/
 ├── 📄 app.py                    # Flask application entry
 ├── 📄 data_pipeline.py          # Data processing & visualizations
 ├── 📄 generate_report.py        # Technical PDF report generator
-├── 📄 generate_academic_report.py # Academic PDF report generator
+├── 📄 generate_student_report.py # Student project report generator
 ├── 📄 run_data_check.py         # Quick validation script
 ├── 📄 wsgi.py                   # Azure App Service entrypoint
 ├── 📄 requirements.txt          # Python dependencies
@@ -104,7 +104,7 @@ UIDAI Data Hackathon/
 ├── 📂 static/
 │   └── styles.css               # Dark theme styles
 ├── 📄 UIDAI_Aadhaar_Analytics_Report.pdf
-└── 📄 UIDAI_Report_Maharashtra.pdf  # Academic report
+└── 📄 UIDAI_Report.pdf           # Student project report
 ```
 
 ---
@@ -148,12 +148,12 @@ python generate_report.py
 ```
 📄 Output: `UIDAI_Aadhaar_Analytics_Report.pdf`
 
-### Generate Academic Report
+### Generate Student Report
 
 ```bash
-python generate_academic_report.py
+python generate_student_report.py
 ```
-📄 Output: `UIDAI_Report_Maharashtra.pdf` — Plain text academic format for government evaluation
+📄 Output: `UIDAI_Report.pdf` — Simple student project report in plain academic English
 
 ### Validate Data Pipeline
 
